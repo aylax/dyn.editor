@@ -63,3 +63,46 @@ quicksort' (x:xs) =
     let ls = quicksort' [ y | y <- xs, y < x ]
         rs = quicksort' [ y | y <- xs, y >= x ]
         in  ls ++ [x] ++ rs
+
+
+
+
+zipwith' :: (a -> b -> c) -> [a] -> [b] -> [c]
+zipwith' _ [] _ = []
+zipwith' _ _ [] = []
+zipwith' f (x:xs) (y:ys) = f x y : zipwith' f xs ys
+
+
+
+
+chain' :: (Integral a) => a -> [a]
+chain' 1 = [1]
+chain' n
+    | even n = n : chain' (n `div` 2)
+    | odd n = n : chain' (n * 3 + 1)
+
+
+maximum'' :: (Ord a) => [a] -> a  
+maximum'' = foldr1 (\x acc -> if x > acc then x else acc)  
+
+reverse'' :: [a] -> [a]  
+reverse'' = foldl (\acc x -> x : acc) []  
+  
+product'' :: (Num a) => [a] -> a  
+product'' = foldr1 (*)  
+  
+filter'' :: (a -> Bool) -> [a] -> [a]  
+filter'' p = foldr (\x acc -> if p x then x : acc else acc) []  
+  
+head'' :: [a] -> a  
+head'' = foldr1 (\x _ -> x)  
+  
+last'' :: [a] -> a  
+last'' = foldl1 (\_ x -> x)
+
+
+-- ($) :: (a -> b) -> a -> b  
+-- f $ x = f x
+
+--  (.) :: (b -> c) -> (a -> b) -> a -> c  
+-- f . g = \x -> f (g x)
