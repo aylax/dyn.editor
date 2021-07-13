@@ -1,3 +1,11 @@
+import Data.List -- load all
+import Data.List (nub, sort) -- load two
+import Data.List hiding (nub, sort) -- load all expect two
+import qualified Data.Map as M
+import qualified Geometry as G
+
+
+
 bmiTell :: (RealFloat a) => a -> a -> String  
 bmiTell weight height  
     | weight / height ^ 2 <= 18.5 = "You're underweight, you emo, you!"  
@@ -106,3 +114,5 @@ last'' = foldl1 (\_ x -> x)
 
 --  (.) :: (b -> c) -> (a -> b) -> a -> c  
 -- f . g = \x -> f (g x)
+
+
