@@ -1,9 +1,6 @@
-module Geometry 
-(
-  Sphere.volume
-, Cube.area
-) where
+module Geometry  where
 
-import qualified Geometry.Sphere as Sphere
-import qualified Geometry.Cuboid as Cuboid
-import qualified Geometry.Cube as Cube
+import Geometry.Sphere
+import Geometry.Cuboid
+import Geometry.Cube
+import Geometry.Record
