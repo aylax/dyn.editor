@@ -12,7 +12,7 @@ firstName :: String
 
 -- Manod
 class Box m where
-    return :: a -> m a
+    ret :: a -> m a
     (<|>) :: m a -> (a -> m b) -> m b
     (>>) :: m a -> m b -> m b
     x >> y = x <|> \_ -> y
@@ -24,9 +24,19 @@ class Box m where
 data Option v = None | Some v deriving(Show)
 
 instance Box Option where
-    return x = Some x
+    ret x = Some x
     None <|> f = None
     Some x <|> f = f x
     fail _ = None
 
 
+instance (Eq m) => Eq (Option m) where
+    Some a == Some b = a == b
+    None == None = True
+    _ == _ = False
+
+
+instance Functor Option where
+    fmap f (Some a) = Some (f a)
+    fmap f None = None
+       
