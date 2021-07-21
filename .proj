@@ -1,0 +1,17 @@
+.
+├── .gitignore
+├── .proj
+├── Geometry/
+│   ├── Cube.hs
+│   ├── Cuboid.hs
+│   ├── InputOut.hs
+│   ├── Record.hs
+│   ├── Sphere.hs
+│   └── Zippers.hs
+├── Geometry.hs
+├── LICENSE
+├── Main.hs
+├── README.md
+└── proj.gen
+
+1 directory, 13 files
